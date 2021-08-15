@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Index</title>
+</head>
+<body>
+<div th:include="fragments/commons :: linkBootstrap"></div>
+<div th:include="fragments/commons :: cabecalho"></div>
+<br/>
+<br />
+<div class="container" style="background-color: #ffb6c1;">
+  <div class="card border-0 shadow my-5">
+    <div class="card-body p-5">
+      <h1 class="fw-light">Lista de Celulares</h1>
+      <p class="lead">
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col" >marca</th>
+          <th scope="col">modelo</th>
+          <th scope="col">cor</th>
+          <th scope="col">ram</th>
+          <th scope="col">armazenamento</th>
+          <th scope="col">preco</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="celular : ${celulares}" scope="row">
+          <td th:text="${celular.id}">ID</td>
+          <td th:text="${celular.marca}">marca</td>
+          <td th:text="${celular.modelo}">modelo</td>
+          <td th:text="${celular.cor}">cor</td>
+          <td th:text="${celular.ram}">ram</td>
+          <td th:text="${celular.armazenamento}">armazenamento</td>
+          <td th:text="${celular.preco}">preco</td>
+          <td><a th:href="@{'/deletar/' + ${celular.id}}">Deletar </a></td>
+          <td><a th:href="@{'/editar/' + ${celular.id}}">Editar </a></td>
+        </tr>
+        </tbody>
+      </table>
+      </p>
+      <p class="lead"></p>
+      <div style="height: 500px"></div>
+      <p class="lead mb-0">
+        <a href="/verCarrinho"><strong>Ver Carrinho</strong></a>
+      </p>
+    </div>
+  </div>
+</div>
+<hr>
+</body>
+<div th:include="fragments/commons :: rodape"></div>
+</html>

@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class CelularService {
 
-    CelularRepository repository;
+    private CelularRepository repository;
 
     @Autowired
     public void setRepository(CelularRepository repository) {
@@ -29,4 +29,6 @@ public class CelularService {
     public Celular getById(Long id){
         return repository.getById(id);
     }
+
+    public void delete(Long id){ repository.deleteById(id); }
 }

@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 
@@ -18,17 +19,20 @@ import java.util.Date;
 @Entity
 public class Celular {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Size(min = 2,max = 20, message = "digite uma marca de nome entre 2 e 20")
     private String marca;
+    @Size(min = 3,max = 30)
     private String modelo;
+    @Size(min = 3,max = 18)
     private String cor;
     private Integer ram;
-    private String memoria;
+    @Size(min = 1,max = 6)
+    private String armazenamento;
     private Double preco;
-    private Integer anolancamento;
-    private String imagem;
-    private Date delete;
+    private String imageUri;
+    private Date deleted;
 
 
 }
